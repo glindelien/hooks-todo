@@ -17,6 +17,7 @@ const ToDoApp = () => {
       <ul>
         {tasks.map((current, index) => <Task data={current} key={index}/>)}
       </ul>
+      <input type="button" value="Clear All Tasks" onClick={() => {setTasks([])}}></input>
     </div>
   );
 
