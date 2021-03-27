@@ -2,6 +2,15 @@
   padding: 5px 0px 5px 0px;
 }
 
+.task:hover > .delete-button {
+  display: block;
+}
+
 .complete {
   text-decoration: line-through;
+}
+
+.delete-button {
+  display: none;
+  float: right;
 }
