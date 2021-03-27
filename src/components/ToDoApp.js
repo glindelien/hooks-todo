@@ -1,19 +1,15 @@
-import { useState } from 'react';
 import Form from './Form.js';
 import Task from './Task.js';
 
+import useLocalStorage from '../hooks/useLocalStorage.js';
+
 const ToDoApp = () => {
 
-  const defaultTasksString = localStorage.getItem('tasks') || '[]';
-  const defaultTasks = JSON.parse(defaultTasksString);
-
-  const [tasks, setTasks] = useState(defaultTasks);
+  const [tasks, setTasks] = useLocalStorage('tasks', []);
 
   const addTask = (task) => {
     setTasks([...tasks, task]);
   }
-
-  localStorage.setItem('tasks', JSON.stringify(tasks));
 
   return (
     <div>
