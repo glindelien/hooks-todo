@@ -28,7 +28,9 @@ const ToDoApp = () => {
 
       <Form addTask={addTask} />
 
-      <TaskList tasks={tasks} toggleCompletion={toggleCompletion} deleteTask={deleteTask} />
+      <TaskList tasks={tasks}
+                deleteTask={deleteTask}
+                toggleCompletion={toggleCompletion}  />
 
       <input type="button"
              value="Clear All Tasks"
