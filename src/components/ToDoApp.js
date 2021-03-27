@@ -1,5 +1,5 @@
 import Form from './Form.js';
-import Task from './Task.js';
+import TaskList from './TaskList.js';
 
 import useLocalStorage from '../hooks/useLocalStorage.js';
 
@@ -10,6 +10,12 @@ const ToDoApp = () => {
   const addTask = (data) => {
     setTasks([...tasks, {data, complete: false}]);
   }
+
+  const deleteTask = (index) => {
+    const updatedTasks = [...tasks];
+    updatedTasks.splice(index, 1);
+    setTasks(updatedTasks);
+  };
 
   const toggleCompletion = (index) => {
     const updatedTasks = [...tasks];
@@ -22,9 +28,7 @@ const ToDoApp = () => {
 
       <Form addTask={addTask} />
 
-      <ul>
-        {tasks.map((current, index) => <Task task={current} key={index} index={index} toggleCompletion={toggleCompletion} />)}
-      </ul>
+      <TaskList tasks={tasks} toggleCompletion={toggleCompletion} deleteTask={deleteTask} />
 
       <input type="button"
              value="Clear All Tasks"
